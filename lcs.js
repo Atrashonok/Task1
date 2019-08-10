@@ -1,15 +1,15 @@
 if (process.argv.length < 3) {
-    console.log('');
+    console.log('')
   } else {
-    let strings = process.argv.slice(2);
-    let shortest = strings.reduce((a, b) => a.length <= b.length ? a : b);
-    let maxlen = shortest.length;
-    outer: for (let len = maxlen; len >= 0; len--) {
-      for (let start = 0; start <= maxlen - len; start++) {
-        let substr = shortest.substring(start, start+len);
-        if (strings.every(elem => ~elem.indexOf(substr))) {
-          console.log(substr);
-          break outer;
+    let s = process.argv.slice(2)
+    let h = s.reduce((a, b) => a.length <= b.length ? a : b)
+    let m = h.length
+    outer: for (let l = m; l > 0; l--) {
+      for (let t = 0; t <= m - l; t++) {
+        let b = h.substring(t, t+l)
+        if (s.every(e => ~e.indexOf(b))) {
+          console.log(b)
+          break outer
         }
       }
     }
