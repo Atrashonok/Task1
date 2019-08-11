@@ -1,16 +1,1 @@
-if (process.argv.length < 3) {
-    console.log('');
-  } else {
-    let strings = process.argv.slice(2);
-    let shortest = strings.reduce((a, b) => a.length <= b.length ? a : b);
-    let maxlen = shortest.length;
-    outer: for (let len = maxlen; len >= 0; len--) {
-      for (let start = 0; start <= maxlen - len; start++) {
-        let substr = shortest.substring(start, start+len);
-        if (strings.every(elem => ~elem.indexOf(substr))) {
-          console.log(substr);
-          break outer;
-        }
-      }
-    }
-  }
+if(process.argv.length<3)console.log("");else{let e=process.argv.slice(2),l=e.reduce((e,l)=>e.length<=l.length?e:l),o=l.length;e:for(let r=o;r>=0;r--)for(let s=0;s<=o-r;s++){let o=l.substring(s,s+r);if(e.every(e=>~e.indexOf(o))){console.log(o);break e}}}
